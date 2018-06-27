@@ -15,18 +15,18 @@ public class Reitor {
    public static void main(String args[]) throws IOException {
 
       //Loading an existing document
-      File file = new File("C:/PdfBox_Examples/new.pdf");
-      PDDocument document = PDDocument.load(file);
+      //File file = new File("C:/PdfBox_Examples/new.pdf");
+      //PDDocument document = PDDocument.load(file);
 
       //Instantiate PDFTextStripper class
       PDFTextStripper pdfStripper = new PDFTextStripper();
 
       //Retrieving text from PDF document
-      String text = pdfStripper.getText(document);
-      System.out.println(text);
+      //String text = pdfStripper.getText(document);
+      //System.out.println(text);
 
       //Closing the document
-      document.close();
+      //document.close();
 
    }
    
