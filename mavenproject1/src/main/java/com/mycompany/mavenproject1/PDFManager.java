@@ -64,20 +64,39 @@ public class PDFManager {
             }
         }
         
-        String[] palavrasMaisFrequentes = new String[3];
-        int[] freqPalavras = new int[3];
+        String[] palavrasMaisFrequentes = new String[10];
+        int[] freqPalavras = new int[10];
         for (Map.Entry<String, Integer> entrada : mapaFreq.entrySet()) {
             if (entrada.getValue() > freqPalavras[0]) {
                 freqPalavras[0] = entrada.getValue();
                 palavrasMaisFrequentes[0] = entrada.getKey();
-            } else {
-                if (entrada.getValue() > freqPalavras[1]) {
-                    freqPalavras[1] = entrada.getValue();
-                    palavrasMaisFrequentes[1] = entrada.getKey();
-                } else if (entrada.getValue() > freqPalavras[2]) {
-                    freqPalavras[2] = entrada.getValue();
-                    palavrasMaisFrequentes[2] = entrada.getKey();
-                }
+            } else if (entrada.getValue() > freqPalavras[1]) {
+                freqPalavras[1] = entrada.getValue();
+                palavrasMaisFrequentes[1] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[2]) {
+                freqPalavras[2] = entrada.getValue();
+                palavrasMaisFrequentes[2] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[3]) {
+                freqPalavras[3] = entrada.getValue();
+                palavrasMaisFrequentes[3] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[4]) {
+                freqPalavras[4] = entrada.getValue();
+                palavrasMaisFrequentes[4] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[5]) {
+                freqPalavras[5] = entrada.getValue();
+                palavrasMaisFrequentes[5] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[6]) {
+                freqPalavras[6] = entrada.getValue();
+                palavrasMaisFrequentes[6] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[7]) {
+                freqPalavras[7] = entrada.getValue();
+                palavrasMaisFrequentes[7] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[8]) {
+                freqPalavras[8] = entrada.getValue();
+                palavrasMaisFrequentes[8] = entrada.getKey();
+            } else if (entrada.getValue() > freqPalavras[9]) {
+                freqPalavras[9] = entrada.getValue();
+                palavrasMaisFrequentes[9] = entrada.getKey();
             }
         }
 
