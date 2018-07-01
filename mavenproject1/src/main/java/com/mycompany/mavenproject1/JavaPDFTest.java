@@ -9,6 +9,7 @@ public class JavaPDFTest {
        PDFManager pdfManager = new PDFManager();       
        pdfManager.setFilePath("./src/main/resources/13.pdf");
        System.out.println(pdfManager.ToText());       
-    
+       pdfManager.net();
+       pdfManager.retornaReferencias();
     }    
 }
