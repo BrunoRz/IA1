@@ -7,9 +7,10 @@ public class JavaPDFTest {
     public static void main(String[] args) throws IOException {
 
         PDFManager pdfManager = new PDFManager();       
-        pdfManager.setFilePath("./src/main/resources/13.pdf");
+        pdfManager.setFilePath("./src/main/resources/120.pdf");
         pdfManager.ToText();
-        //pdfManager.frequenciapalavras();
+        pdfManager.findAuthors();
         pdfManager.preProcessing();
+        //pdfManager.frequenciaPalavras();
     }    
 }
