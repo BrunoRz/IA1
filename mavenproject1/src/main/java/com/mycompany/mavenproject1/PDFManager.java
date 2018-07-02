@@ -19,12 +19,11 @@ public class PDFManager {
     private PDDocument pdDoc ;
     private COSDocument cosDoc ;
 
-    private String text;
+    private String text, references;
     private String filePath;
     private File file;
 
     public PDFManager() {
-
     }
 
     public String ToText() throws IOException {
@@ -46,14 +45,23 @@ public class PDFManager {
         text = pdfStripper.getText(pdDoc);
         return text;
     }
-
     
-    
-    private final Pattern p = Pattern.compile("[a-zA-Z]+");
+    public void preProcessing(){
+        //separa as referências do resto do artigo
+        int referencesIndex = text.lastIndexOf("REFERENCES");        
+        references = text.substring(referencesIndex);
+        text = text.substring(0, referencesIndex);
+        
+        //remove todos os caracteres que não pertecem ao alfabeto
+        text = text.replaceAll("[^a-zA-Z]", "");
+        
+        //remove o excesso de espacamento entre as palavras que sobraram
+        text = text.replaceAll("[\\s]+", " ");
+        
+        System.out.println(text);
+    }
     
     public void frequenciapalavras(){
-        text.replaceAll("[.,]","");
-        
         Map<String, Integer> mapaFreq = new HashMap<>();
         
         for (String palavra : text.split("\\s+")) {
@@ -107,12 +115,7 @@ public class PDFManager {
         }
     }
     
-    public void retornaReferencias(){
-        int lastIndex = text.lastIndexOf("REFERENCES");
-        String referencias = text.substring(lastIndex);
-        System.out.println(referencias);
-    }
-    
+     
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
