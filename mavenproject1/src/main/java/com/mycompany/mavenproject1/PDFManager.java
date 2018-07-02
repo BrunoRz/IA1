@@ -2,6 +2,7 @@ package com.mycompany.mavenproject1;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -19,7 +20,7 @@ public class PDFManager {
     private PDDocument pdDoc ;
     private COSDocument cosDoc ;
 
-    private String text, references;
+    private String text, authors, references;
     private String filePath;
     private File file;
 
@@ -48,20 +49,20 @@ public class PDFManager {
     
     public void preProcessing(){
         //separa as referências do resto do artigo
-        int referencesIndex = text.lastIndexOf("REFERENCES");        
+        int referencesIndex = text.lastIndexOf("REFERENCES");
         references = text.substring(referencesIndex);
         text = text.substring(0, referencesIndex);
         
         //remove todos os caracteres que não pertecem ao alfabeto
-        text = text.replaceAll("[^a-zA-Z]", "");
+        text = text.replaceAll("[^a-zA-Z]", " ");
         
         //remove o excesso de espacamento entre as palavras que sobraram
         text = text.replaceAll("[\\s]+", " ");
         
-        System.out.println(text);
+        //System.out.println(text);
     }
     
-    public void frequenciapalavras(){
+    public void frequenciaPalavras(){
         Map<String, Integer> mapaFreq = new HashMap<>();
         
         for (String palavra : text.split("\\s+")) {
@@ -114,8 +115,19 @@ public class PDFManager {
                         + "\n------------------------\n");
         }
     }
+
+    public void findAuthors(){
+        int beginIndex, endIndex;
+        
+        String searchString = text.substring(0, text.indexOf("Abstract"));        
+        
+        endIndex = searchString.lastIndexOf("\n");        
+        searchString = searchString.substring(0, endIndex);        
+        beginIndex = searchString.lastIndexOf("\n");
+        
+        authors = text.substring(beginIndex, endIndex);
+    }
     
-     
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
