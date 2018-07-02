@@ -132,4 +132,9 @@ public class PDFManager {
         this.filePath = filePath;
     }
 
+    void whatDoWeHave() {
+        System.out.println(references);
+        System.out.println(authors);
+    }
+
 }

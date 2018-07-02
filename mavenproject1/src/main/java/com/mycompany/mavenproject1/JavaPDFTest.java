@@ -11,6 +11,7 @@ public class JavaPDFTest {
         pdfManager.ToText();
         pdfManager.findAuthors();
         pdfManager.preProcessing();
-        //pdfManager.frequenciaPalavras();
+        pdfManager.frequenciaPalavras();
+        pdfManager.whatDoWeHave();
     }    
 }
